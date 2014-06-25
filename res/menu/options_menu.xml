@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Toggle Scale Selector" android:id="@+id/toggleScaleSelector"></item>
+	<item android:id="@+id/about" android:title="About"></item>      
+</menu>
