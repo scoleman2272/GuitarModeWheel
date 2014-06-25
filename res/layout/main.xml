@@ -5,17 +5,22 @@
     
       
 
-<TextView android:text="@+id/TextView01" android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        xmlns:ads="http://schemas.android.com/apk/res-auto" >
+        
 
-
-
-
-
-
+     
+    <com.google.android.gms.ads.AdView android:id="@+id/adView"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           ads:adSize="BANNER"
+                           ads:adUnitId="ca-app-pub-4189432806288450/5394912523"
+                           />   
 
 <com.stc.WheeleView android:layout_height="fill_parent" android:layout_width="fill_parent" android:id="@+id/wheele" android:visibility="visible"></com.stc.WheeleView>
-<com.stc.StaffView android:id="@+id/staff" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"></com.stc.StaffView>
-<com.stc.FretboardView android:id="@+id/fretboard" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="visible"></com.stc.FretboardView>
     <Spinner 
         android:id="@+id/Spinner01"
         android:layout_height="wrap_content"
@@ -23,6 +28,17 @@
         android:drawSelectorOnTop = "true"
         android:prompt = "@string/planet_prompt" android:visibility="visible">
     </Spinner>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+<com.stc.StaffView android:id="@+id/staff" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"></com.stc.StaffView>
+<com.stc.FretboardView android:id="@+id/fretboard" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="visible"></com.stc.FretboardView>
 
 
 </FrameLayout>

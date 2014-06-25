@@ -2,6 +2,9 @@ package com.stc;
 
 
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import com.stc.WheeleView.WheeleThread;
 
 import android.app.Activity;
@@ -89,12 +92,22 @@ public class ModeWheele extends Activity
   	  	scale.setInitialStringAndFret(6,1); // This also sets octave
   	  	mWheeleView.SetScale(scale);
         
-  	  	mWheeleView.setTextView((TextView) findViewById(R.id.TextView01));        
+//  	  	mWheeleView.setTextView((TextView) findViewById(R.id.TextView01));        
         mWheeleThread = mWheeleView.getThread();   
         mWheeleThread.doStart();
         
-        TextView fred = (TextView)findViewById(R.id.TextView01);
-        fred.setText("hi there this is a testr");
+//        TextView fred = (TextView)findViewById(R.id.TextView01);
+//        fred.setText("hi there this is a testr");
+//        fred.setVisibility(View.VISIBLE);
+        
+        
+//        AdView adView = (AdView) this.findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder()
+//            .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+//            .addTestDevice("INSERT_YOUR_HASHED_DEVICE_ID_HERE")
+//            .build();
+//        adView.loadAd(adRequest);        
+        
         registerForContextMenu(mWheeleView);
         
         mFretboardView.setmParentActivity(this);
@@ -107,6 +120,14 @@ public class ModeWheele extends Activity
         spinner.setAdapter(adapter);    
         spinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
         logVersion();
+        
+        AdView adView = (AdView) this.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+            .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+            .addTestDevice("INSERT_YOUR_HASHED_DEVICE_ID_HERE")
+            .build();
+        adView.loadAd(adRequest);        
+        
         
     }    	
 
@@ -179,7 +200,7 @@ public class ModeWheele extends Activity
 					
 					
 					String content = "Scott Coleman\n\n";
-					content += "Guitar Mode Whele\n";
+					content += "Guitar Mode Wheel\n";
 					content += "Application Version: " + mApplicationVersion + "\n";
 
 					
