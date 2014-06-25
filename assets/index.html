@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>About Guitar Mode Wheel</title>
+      <link rel="stylesheet" href="jquery.mobile/jquery.mobile.css" type="text/css" charset="utf-8" />
+	  <link rel="stylesheet" href="pgandjqm-style-override.css" type="text/css" charset="utf-8" />
+	  <link rel="stylesheet" href="jquery.mobile/themes/bio.min.css" type="text/css" />
+	  <script src="jquery.mobile/jquery-1.6.4.min"></script>	  
+	  <script src="main.js"></script>
+	  <script src="jquery.mobile/jquery.mobile.js"></script>
+	</head>
+  <body>
+    <div data-role="page" data-theme="a" id="intro">
+	  	<div data-role="header">
+	    	<h1>Getting Started</h1>	
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#intro" class="ui-btn-active">Getting Started</a></li>
+					<li><a href="#uses">Scale Wheel</a></li>
+					<li><a href="#devices">Fretboard</a></li>
+				</ul>
+			</div>
+		</div>
+	    <div data-role="content">
+	    	<p>
+	Use Guitar Mode Wheel to help learn musical scales and modes.
+You can familiarize youself with the sound of specific modes within scales.
+You can also use the fretboard display to find particular positions of notes
+
+
+			<a href="mailto:scoleman2012@gmail.com?subject=Guitar Mode Wheel%20-%20" data-role="button" data-icon="mail_icon">Feedback</a>
+	    </div>
+    </div>
+    <div data-role="page" data-theme="a" id="uses">
+	  	<div data-role="header" data-add-back-btn="false">
+	    	<h1>Guitar Mode Wheel</h1>	
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#intro" data-direction="reverse">Getting Started</a></li>
+				<li><a href="#uses" class="ui-btn-active">Scale Wheel</a></li>
+				<li><a href="#devices">Fretboard</a></li>
+			</ul>
+		</div><!-- /navbar -->
+		</div>
+	    <div data-role="content">
+	    	<h2>Scale Wheel</h2>
+	    	<p>
+The scale wheel is a draggable circular object that contains the basic notes of the scale and markers indicating the distance
+between the notes (half step or whole step). <br>
+Half step graphic: <img src="images/halfstepgraphic.png" class="border" />	    <br>		
+Whole step graphic: <img src="images/wholestepgraphic.png" class="border" />	    		
+	    		</p>
+	    	<p>
+
+You can drag the circle to the right or left to choose the mode (indicated at bottom of screen).
+In essence the mode dictates the note you begin a scale with. Then touch the letters of the scale to hear the sound of the scale.
+	    		</p>
+	    		<h3>Modes</h3>
+					<ol>
+						<li>Ionian</li>
+						<li>Dorian</li>
+						<li>Phrygian</li>
+						<li>Lydian</li>
+						<li>Mixolidian</li>
+						<li>Aeolian</li>
+						<li>Locrian</li>
+					</ol>	    		
+	    		
+	    		<p>
+	    			
+	    			</p>
+	    		
+	    	<h2>Scale Selector</h2>	   
+	    	<p>The scale selector (at the top) allows you to change the scale you want to display/hear.</p> 
+	    	<p>When a new scale is selected the mode always starts out as Ionian</p>		
+	    		
+
+
+		</div>
+    </div>
+    
+    <div data-role="page" data-theme="a" id="devices">
+	  	<div data-role="header"  data-add-back-btn="false">
+	    	<h1>Compatible Devices</h1>	
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#intro" data-direction="reverse">Getting Started</a></li>
+				<li><a href="#uses" data-direction="reverse">Scale Wheel</a></li>
+				<li><a href="#devices" class="ui-btn-active">Fretboard</a></li>
+			</ul>
+		</div><!-- /navbar -->
+		</div>
+	    <div data-role="content">
+	    	<p>
+	    		The fretboard is a display of the frets of the guitar. The display shows 5 strings of the guitar and the first several
+	    		frets. The grey dots are specific positions on the fretboard in which you can find notes of the scales. 
+	    		Note that this covers only one fingering theme.
+	    	</P>
+	    	
+	    	<p>When you touch a note on the scale circle, not only does the sound of that note play, but the various fret positions
+	    		where you can find that note are shown in bold on the fretboard.</p>
+	    		
+	    		<p>You can also touch the grey circles to hear the notes.</p>
+	    		
+
+		</div>    
+    </div>
+    
+  </body>
+</html>

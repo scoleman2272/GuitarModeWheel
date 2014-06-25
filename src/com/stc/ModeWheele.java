@@ -4,11 +4,11 @@ package com.stc;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-
 import com.stc.WheeleView.WheeleThread;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -187,6 +187,11 @@ public class ModeWheele extends Activity
 	{
 		  switch (item.getItemId()) 
 		  {
+		  		case R.id.help:
+		    		Intent intent1 = new Intent(this, InstructionsActivity.class);
+		    		startActivity(intent1);	 		  			
+		  			return true;
+		  
 			    case R.id.toggleScaleSelector:
 			    	Spinner spinner = (Spinner) findViewById(R.id.Spinner01);
 			        if (spinner == null) return true;
