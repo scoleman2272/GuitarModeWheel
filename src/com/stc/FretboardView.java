@@ -35,6 +35,11 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 
+
+
+
+
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -44,6 +49,11 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.FrameLayout.LayoutParams;
+import android.widget.ImageView;
 
 public class FretboardView extends View
 {
@@ -89,12 +99,13 @@ public class FretboardView extends View
     // Note that we must store the notes outside of the provided scale because we may iterate through the scale a couple of times to fill the fretboard
     private Vector<NoteView> mNotes;
     private Scale mScale;
-    
+    private Context mContext;
     
     
 	public FretboardView(Context context, AttributeSet attrs)
 	{
 		super(context, attrs);
+		mContext = context;
 		mLinePaint = new Paint();
 		mLinePaint.setAntiAlias(true);
 		mLinePaint.setColor(0x80000000);
@@ -136,6 +147,9 @@ public class FretboardView extends View
 	@Override
 	public void draw(Canvas canvas)
 	{
+		
+		
+//		this.get
         canvas.drawColor(Color.WHITE);
         float x = mX;
         x = 0;
@@ -288,7 +302,9 @@ public class FretboardView extends View
 		mHeight =  (float) ((float) View.MeasureSpec.getSize(heightMeasureSpec) / 3);
 	    mWidth = (float) ((float) View.MeasureSpec.getSize(widthMeasureSpec) / 2.5);
 		
+	    
 		setMeasuredDimension((int) mWidth,(int) mHeight);
+
 		mStringSpacing = mHeight /(mNumStrings);
 		mStringOffset= mStringSpacing / 2;
 		mFretSpacing = mWidth /(mMaxNumRelativeFrets - 1);
