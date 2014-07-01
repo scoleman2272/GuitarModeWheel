@@ -300,7 +300,8 @@ public class FretboardView extends View
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
 	{
 		mHeight =  (float) ((float) View.MeasureSpec.getSize(heightMeasureSpec) / 3);
-	    mWidth = (float) ((float) View.MeasureSpec.getSize(widthMeasureSpec) / 2.5);
+//	    mWidth = (float) ((float) View.MeasureSpec.getSize(widthMeasureSpec) / 2.5);
+	    mWidth = (float) ((float) View.MeasureSpec.getSize(widthMeasureSpec) / 2.0);
 		
 	    
 		setMeasuredDimension((int) mWidth,(int) mHeight);
