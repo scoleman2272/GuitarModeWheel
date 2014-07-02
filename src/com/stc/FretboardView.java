@@ -57,6 +57,8 @@ import android.widget.ImageView;
 
 public class FretboardView extends View
 {
+	
+	private static final int TOUCH_RESPONSE_SIZE = 30;
 	private Paint   mLinePaint;	
 	private Paint   mTextPaint;	
 	private Paint   mSelectedNotePaint;	
@@ -299,7 +301,7 @@ public class FretboardView extends View
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
 	{
-		mHeight =  (float) ((float) View.MeasureSpec.getSize(heightMeasureSpec) / 3);
+		mHeight =  (float) ((float) View.MeasureSpec.getSize(heightMeasureSpec) / 2);
 //	    mWidth = (float) ((float) View.MeasureSpec.getSize(widthMeasureSpec) / 2.5);
 	    mWidth = (float) ((float) View.MeasureSpec.getSize(widthMeasureSpec) / 2.0);
 		
@@ -333,7 +335,7 @@ public class FretboardView extends View
 				while (notesElements.hasMoreElements())
 				{
 					NoteView noteView = (NoteView)notesElements.nextElement();
-					if ((Math.abs(noteView.screenPosX - x) < 15 ) && (Math.abs(noteView.screenPosY - y) < 15 ))
+					if ((Math.abs(noteView.screenPosX - x) < TOUCH_RESPONSE_SIZE ) && (Math.abs(noteView.screenPosY - y) < TOUCH_RESPONSE_SIZE ))
 					{
 						noteView.selected = true;
 //	    		    	midiFile.PlayNote(noteView.name);

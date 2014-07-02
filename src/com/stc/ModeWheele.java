@@ -64,6 +64,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+// TODO: Make fret indication change when new scale is chosen
+// TODO: When a new mode is chosen highlight starting poing
 // TODO Fix where octave shifts in keys other than C (outside circle)
 // TODO Fix issues with sleep on/off (See SpinnerActivity)
 // TODO implement other patterns
@@ -262,21 +265,26 @@ public class ModeWheele extends Activity {
 			String root = parent.getItemAtPosition(pos).toString();
 			Scale scale = new Scale("Ionian", root);
 			scale.setInitialStringAndFret(6, 1); // This also sets octave
+
 			
-			ImageView imageView = getImageForScale(scale);
-			View v = new ImageView(getBaseContext());
+			// Use this to draw neck manually
+//			ImageView imageView = getImageForScale(scale);
+//			View v = new ImageView(getBaseContext());
+//			
+//			imageView.setX(0);
+//			imageView.setY(-200);
+//			imageView.setMaxWidth(50);
+//			FrameLayout layout = (FrameLayout) findViewById(R.id.FrameLayout01);
+//			FrameLayout.LayoutParams iParams = (android.widget.FrameLayout.LayoutParams) layout.getLayoutParams();
+//			FrameLayout.LayoutParams fp = new FrameLayout.LayoutParams(600,600);
+//			fp.setMargins(75,135,300,300);
+//			imageView.setLayoutParams(fp);
+//			
+//			layout.addView(imageView);
 			
-			imageView.setX(0);
-			imageView.setY(-200);
-			imageView.setMaxWidth(50);
-			FrameLayout layout = (FrameLayout) findViewById(R.id.FrameLayout01);
-			FrameLayout.LayoutParams iParams = (android.widget.FrameLayout.LayoutParams) layout.getLayoutParams();
-			FrameLayout.LayoutParams fp = new FrameLayout.LayoutParams(600,600);
-			fp.setMargins(75,135,300,300);
-			imageView.setLayoutParams(fp);
-			
-			layout.addView(imageView);
-			
+			// Use this to jsut the replace the one in the layout
+			ImageView imageView = (ImageView) findViewById(R.id.imageViewNeck);
+			setImageForScale(scale, imageView);
 			
 			
 			
@@ -293,8 +301,7 @@ public class ModeWheele extends Activity {
 		}
 	}
 	
-	ImageView getImageForScale(Scale scale) {
-		ImageView imageView = new ImageView(getBaseContext());
+	ImageView setImageForScale(Scale scale, ImageView imageView) {
 		
 		imageView.setImageResource(R.drawable.neck);
 		
@@ -341,8 +348,6 @@ public class ModeWheele extends Activity {
 			
 		}
 		return imageView;
-
-		
 	}
 	
 }
