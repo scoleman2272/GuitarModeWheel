@@ -96,8 +96,8 @@ public class FretboardView extends View
 		this.mParentActivity = mParentActivity;
 	}
 
-	float[] mStringPosiotions;
-    float[] mFretPosiotions;
+	float[] mStringYPositions;
+    float[] mFretXPosiotions;
     
     // Note that we must store the notes outside of the provided scale because we may iterate through the scale a couple of times to fill the fretboard
     private Vector<NoteView> mNotes;
@@ -135,8 +135,8 @@ public class FretboardView extends View
         mTextPaint.setColor(0x80000000);
 	
 
-        mStringPosiotions = new float[mNumStrings];
-        mFretPosiotions = new float[mMaxNumRelativeFrets];
+        mStringYPositions = new float[mNumStrings];
+        mFretXPosiotions = new float[mMaxNumRelativeFrets];
 		mNotes = new Vector<NoteView>();
 
 		// Plot some test notes
@@ -162,12 +162,12 @@ public class FretboardView extends View
         // Draw strings
         for (int i = 0; i < mNumStrings; i++)
         {
-        	canvas.drawLine(x, mStringPosiotions[i], mWidth, mStringPosiotions[i], p);         	
+        	canvas.drawLine(x, mStringYPositions[i], mWidth, mStringYPositions[i], p);         	
         }
         // Draw Frets
         for (int i = 0; i < mMaxNumRelativeFrets; i++)
         {
-        	canvas.drawLine(mFretPosiotions[i],y + mStringOffset , mFretPosiotions[i], mHeight - mStringOffset, p);         	
+        	canvas.drawLine(mFretXPosiotions[i],y + mStringOffset , mFretXPosiotions[i], mHeight - mStringOffset, p);         	
         }
         
         // Draw fret indication
@@ -184,8 +184,8 @@ public class FretboardView extends View
 			int string = note.string - 1;
 			if ((fret>= 0 && fret < mMaxNumRelativeFrets) && (string >= 0 && string < mNumStrings))
 			{
-				x = mFretPosiotions[note.fret - 1] + mFretOffset;
-				y = mStringPosiotions[note.string - 1];
+				x = mFretXPosiotions[note.fret - 1] + mFretOffset;
+				y = mStringYPositions[note.string - 1];
 				note.screenPosX = (int) x;
 				note.screenPosY = (int) y;
 				
@@ -293,8 +293,7 @@ public class FretboardView extends View
 	}
 	
 	@Override
-	protected void onSizeChanged(int w, int h, int oldw, int oldh)
-	{
+	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		super.onSizeChanged(w, h, oldw, oldh);
         mX = w * 0.5f;  // remember the center of the screen		
 	}
@@ -312,16 +311,19 @@ public class FretboardView extends View
 		mStringSpacing = mHeight /(mNumStrings);
 		mStringOffset= mStringSpacing / 2;
 		mFretSpacing = mWidth /(mMaxNumRelativeFrets - 1);
+		
+		float precentPerFret = mFretSpacing / mWidth;
+		precentPerFret = (float) 1 /(mMaxNumRelativeFrets - 1);
+		
 		mNoteSize = mFretSpacing / 4;	
 		mFretOffset = mFretSpacing / 2;
 		
-        for (int i = 0; i < mNumStrings; i++)
-        {
-            mStringPosiotions[i] = (mStringSpacing * i) + mStringOffset;             
+        for (int i = 0; i < mMaxNumRelativeFrets; i++) {
+            mFretXPosiotions[i] = mFretSpacing * i;     
+            mFretSpacing -=1;
         }
-        for (int i = 0; i < mMaxNumRelativeFrets; i++)
-        {
-            mFretPosiotions[i] = mFretSpacing * i;             
+        for (int i = 0; i < mNumStrings; i++) {
+            mStringYPositions[i] = (mStringSpacing * i) + mStringOffset;             
         }
 	}
 

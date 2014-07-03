@@ -81,8 +81,8 @@ public class Scale
 			"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
 			};
 	public static final String[] modes = {
-			"Ionian", "Dorian", "Phrygian", "Lydian", "MixoLydian", "Aeoiian", "Locrian",
-			"Ionian", "Dorian", "Phrygian", "Lydian", "MixoLydian", "Aeoiian", "Locrian"
+			"Ionian", "Dorian", "Phrygian", "Lydian", "Mixolydian", "Aeoiian", "Locrian",
+			"Ionian", "Dorian", "Phrygian", "Lydian", "Mixolydian", "Aeoiian", "Locrian"
 			};
 
 	public static final String[] majorMinor = {

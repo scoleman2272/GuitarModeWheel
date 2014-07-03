@@ -64,15 +64,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+// TODO: variable width frets
+// 
 
-// TODO: select notes when neww scale is first chosen
-// TODO: make icon background invisible
-// TODO: reposition mode indicator text
+// TODO: still issue with selecing single note then rotating
 // TODO Fix where octave shifts in keys other than C (outside circle)
 // TODO Fix issues with sleep on/off (See SpinnerActivity)
 // TODO implement other patterns
 // TODO Check all scales
+// TODO: make icon background invisible
+// DONE: fix MixoLydian
+// DONE: select notes when neww scale is first chosen
+// DONE: reposition mode indicator text
 // DONE: Notes are left over when a new note from the wheel view is selected
+
 // DONE Implement versioning
 // DONE Implement About box (and versioning)
 // DONE: Make fret indication change when new scale is chosen
@@ -270,8 +275,10 @@ public class ModeWheele extends Activity {
 			Scale scale = new Scale("Ionian", root);
 			scale.setInitialStringAndFret(6, 1); // This also sets octave
 
+	    	//String noteName = scale.mItems.elementAt(0).name;	
+	    	scale.mItems.elementAt(0).selected = true;	    	
 			
-			// Use this to draw neck manually
+			// Use this to draw neck manually (Not used anymore!)
 //			ImageView imageView = getImageForScale(scale);
 //			View v = new ImageView(getBaseContext());
 //			
