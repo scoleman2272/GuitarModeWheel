@@ -29,10 +29,12 @@ along with this library; if not,
 visit http://www.opensource.org/licenses/EPL-1.0
 
 *****************************************************************/
-package com.stc;
+package com.stc.guitarmodewheel;
 
 
 import java.util.Enumeration;
+
+import com.stc.R;
 
 import android.content.Context;
 import android.content.res.Resources;

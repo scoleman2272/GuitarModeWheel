@@ -51,16 +51,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
     
-<com.stc.WheeleView android:layout_height="fill_parent" android:layout_width="fill_parent" android:id="@+id/wheele" android:visibility="visible"></com.stc.WheeleView>
-        <com.stc.StaffView android:id="@+id/staff" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"></com.stc.StaffView>
+<com.stc.guitarmodewheel.WheeleView android:layout_height="fill_parent" android:layout_width="fill_parent" android:id="@+id/wheele" android:visibility="visible"></com.stc.guitarmodewheel.WheeleView>
+        <com.stc.guitarmodewheel.StaffView android:id="@+id/staff" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"></com.stc.guitarmodewheel.StaffView>
 
-    <com.stc.FretboardView
+    <com.stc.guitarmodewheel.FretboardView
         android:id="@+id/fretboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="visible" >
-</com.stc.FretboardView>
+</com.stc.guitarmodewheel.FretboardView>
     
     </FrameLayout>
         

@@ -29,9 +29,11 @@ along with this library; if not,
 visit http://www.opensource.org/licenses/EPL-1.0
 
 *****************************************************************/
-package com.stc;
+package com.stc.guitarmodewheel;
 
 
+
+import com.stc.R;
 
 import android.app.Activity;
 import android.content.Intent;
