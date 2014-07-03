@@ -65,21 +65,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-// TODO: Make fret indication change when new scale is chosen
-// TODO: When a new mode is chosen highlight starting poing
+// TODO: select notes when neww scale is first chosen
+// TODO: make icon background invisible
+// TODO: reposition mode indicator text
 // TODO Fix where octave shifts in keys other than C (outside circle)
 // TODO Fix issues with sleep on/off (See SpinnerActivity)
 // TODO implement other patterns
 // TODO Check all scales
-// TODO Fix Landscape view
-// TODO Implement About box (and versioning)
-// TODO Main screen icon
-// TODO Implement versioning
+// DONE: Notes are left over when a new note from the wheel view is selected
+// DONE Implement versioning
+// DONE Implement About box (and versioning)
+// DONE: Make fret indication change when new scale is chosen
+// DONE: When a new mode is chosen highlight starting point
+// DONE: Fixed logging tags
+// DONE Main screen icon
+// DONE Change scale selector to spinner (or something easier
 
 // Low level want list
 // TODO Add play button to automatically play whole scale
 // TODO Implement Landscape mode
-// TODO Chang scale selector to spinner (or something easier
 
 /**
  * @author Scott Coleman
@@ -88,7 +92,7 @@ import android.widget.Toast;
  */
 public class ModeWheele extends Activity {
 	private static final int MENU_TOGGLE_SCALE = Menu.FIRST + 100;
-	private static final String TAG = "BFDemo";
+	private static final String TAG = "ModeWheele";
 
 	private WheeleView mWheeleView;
 	private StaffView mStaffView;
@@ -294,6 +298,9 @@ public class ModeWheele extends Activity {
 			mWheeleView.invalidate();
 			Toast.makeText(parent.getContext(),
 					"You have chosen scale: " + root, Toast.LENGTH_LONG).show();
+			
+    		mFretboardView.invalidate();
+			
 		}
 
 		public void onNothingSelected(AdapterView parent) {

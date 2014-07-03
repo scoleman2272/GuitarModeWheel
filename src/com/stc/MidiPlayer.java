@@ -45,6 +45,7 @@ import android.util.Log;
 
 public class MidiPlayer
 {
+	private static final String TAG = "MidiPlayer";
 	String mFileName;
 	Context mContext;
 	File mFilePath;	
@@ -67,7 +68,7 @@ public class MidiPlayer
 	        mReady = true;	        
 	    }
 		catch (Exception e2)	{
-			Log.w("ExternalStorage", "Error reading Midi file" + e2.toString());
+			Log.w(TAG, "Error reading Midi file" + e2.toString());
 		}	    
 		
 		mStringNoteToMidiNote = new Hashtable<String, Integer>();	
@@ -133,11 +134,11 @@ public class MidiPlayer
 	    		
 			} catch (Exception e2)
 			{
-		        Log.w("ExternalStorage", "Error reading " + file.getPath() + " - " + e2.toString());
+		        Log.w(TAG, "Error reading " + file.getPath() + " - " + e2.toString());
 			}
 	        
 	    } catch (IOException e) {
-	        Log.w("", "Error writing " + file, e);
+	        Log.w(TAG, "Error writing " + file, e);
 	    }	    
 	}
 	
@@ -152,7 +153,7 @@ public class MidiPlayer
 			}
 		} catch (Exception e)
 		{
-	        Log.w("", e.toString());
+	        Log.w(TAG, e.toString());
 		}
 	}
 

@@ -176,6 +176,7 @@ public class Scale
 	
 		return noteView;
 	}
+	
 	private int getIndexOf(String item, String[] items)
 	{
 		int result = -1;
@@ -188,5 +189,10 @@ public class Scale
 		return result;
 	}
 	
-
+	public void unSelectAll() {
+		for (NoteView noteView : mItems) {
+			noteView.selected = false;
+		}
+	}
+	
 }

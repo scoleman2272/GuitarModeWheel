@@ -40,6 +40,7 @@ import java.util.Vector;
 
 
 
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -57,7 +58,7 @@ import android.widget.ImageView;
 
 public class FretboardView extends View
 {
-	
+	private static final String TAG = "FretboardView";
 	private static final int TOUCH_RESPONSE_SIZE = 30;
 	private Paint   mLinePaint;	
 	private Paint   mTextPaint;	
@@ -342,7 +343,6 @@ public class FretboardView extends View
 //	            		redraw = true;
 						invalidate();
 //	            		mFretboardView.invalidate();
-				        Log.v("one", new String(" found: " + noteView.name));
 				        
 				        // Now select the note in the original scale so it shows up in the parent view
 						Enumeration<NoteView> scaleElements = mScale.mItems.elements();
@@ -379,7 +379,6 @@ public class FretboardView extends View
 		    	break;
 	        
 	    }
-        Log.v("one", new String(" found: " + "End"));
 
 		return true;
 		//return super.onTouchEvent(e);

@@ -84,6 +84,8 @@ import android.widget.TextView;
  */
 public class WheeleView extends SurfaceView implements SurfaceHolder.Callback
 {
+	private static final String TAG = "WheeleView";
+	private static final int TOUCH_RESPONSE_SIZE = 30;
 	
     private TextView mStatusText; // Currently not used
 
@@ -115,6 +117,7 @@ public class WheeleView extends SurfaceView implements SurfaceHolder.Callback
     private Drawable mHalfStepGraphicImage;
     private Drawable mWholeStepGraphicImage;
     private int mSelectedItemNum;
+    private int mPreviousSelectedItemNum;
 //      private StaffView mStaffView;
     private FretboardView mFretboardView;
     private Scale mScale;
@@ -385,19 +388,20 @@ public class WheeleView extends SurfaceView implements SurfaceHolder.Callback
 	            {
 	            	// Get item to Check on this iteration
 	            	NoteView noteView = (NoteView) mScale.mItems.elementAt(i);
-	            	if ((Math.abs(noteView.screenPosX - x) < 25 ) && (Math.abs(noteView.screenPosY - y) < 25 ))
+	            	if ((Math.abs(noteView.screenPosX - x) < TOUCH_RESPONSE_SIZE ) && (Math.abs(noteView.screenPosY - y) < TOUCH_RESPONSE_SIZE ))
 	            	{
+		        		mScale.unSelectAll();
+	            		
 	            		noteView.selected = true;
 	    		    	midiFile.PlayNote(noteView);
-	            		redraw = true;
-	            		invalidate();
-	            		mFretboardView.invalidate();
-	    		        Log.v("one", new String(" found: " + noteView.name));
+//	            		redraw = true;
+//	            		invalidate();
+//	            		mFretboardView.invalidate();
 	    		    }
-	            	else
-	            	{
-	            		noteView.selected = false;
-	            	}
+//	            	else
+//	            	{
+//	            		noteView.selected = false;
+//	            	}
 	            }
 		      	
 		    	break;
@@ -411,19 +415,36 @@ public class WheeleView extends SurfaceView implements SurfaceHolder.Callback
 			    	viewRotate += mAngleIncrement;
 		    	}
 		    	
-		    	
-		    	
-		    	
-		    	
 		    	mSelectedItemNum = (int)( viewRotate / mAngleIncrement);
 		    	mSelectedItemNum = mScale.mItems.size() - mSelectedItemNum;
 		    	if (mSelectedItemNum > mScale.mItems.size() - 1) 
 		    		mSelectedItemNum = 0;
 
+		    	
+//		    	if (previousViewRotate != viewRotate) {
+		    	
+		    	if (mPreviousSelectedItemNum != mSelectedItemNum) {
+		    		mPreviousSelectedItemNum = mSelectedItemNum;
+		    		Log.d(TAG, "new selected item");
+	        		mScale.unSelectAll();
+			    	
+			    	mScale.mItems.elementAt(mSelectedItemNum).selected = true;
+		    		
+		    	}
+		    	
+		    	
+		    	// Select the note so it shows up on the fretboard
+        		//mScale.unSelectAll();
+		    	
+		    	//mScale.mItems.elementAt(mSelectedItemNum).selected = true;
 		    	String noteName = mScale.mItems.elementAt(mSelectedItemNum).name;
 		    	mScale.mRoot = noteName;
 			    mFretboardView.SetScale(mScale);              
-		    	mFretboardView.invalidate();
+		    	//mFretboardView.invalidate();
+		    	
+        		redraw = true;
+        		invalidate();
+        		mFretboardView.invalidate();		    	
 
 				break;
 
@@ -458,7 +479,6 @@ public class WheeleView extends SurfaceView implements SurfaceHolder.Callback
 	        
 	        if (viewRotate >= 359) viewRotate -= 360;
 	        if (viewRotate < 0 ) viewRotate += 360;
-//	        Log.v("one", new String("viewRotate = " + viewRotate));
 	        
 	    }
 
