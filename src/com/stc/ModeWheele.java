@@ -105,6 +105,7 @@ public class ModeWheele extends Activity {
 	private WheeleThread mWheeleThread;
 
 	private String mApplicationVersion = "";
+	private TextView mTextViewMode;	
 
 	/**
 	 * ArrayAdapter connects the spinner widget to array-based data.
@@ -125,9 +126,13 @@ public class ModeWheele extends Activity {
 		mStaffView = (StaffView) findViewById(R.id.staff);
 		mFretboardView = (FretboardView) findViewById(R.id.fretboard);
 
+		mTextViewMode = (TextView)findViewById(R.id.textViewMode);
+		
+		
 		mWheeleView = (WheeleView) findViewById(R.id.wheele);
 		mWheeleView.SetStaffView(mStaffView);
 		mWheeleView.SetFretboardView(mFretboardView);
+		mWheeleView.setTextViewMode(mTextViewMode);
 
 		Scale scale = new Scale("Ionian", "C");
 		scale.setInitialStringAndFret(6, 1); // This also sets octave
@@ -156,7 +161,7 @@ public class ModeWheele extends Activity {
 
 		Spinner spinner = (Spinner) findViewById(R.id.Spinner01);
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-				this, R.array.ScaleNotes, android.R.layout.simple_spinner_item);
+				this, R.array.ScaleNotesLong, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
 		spinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
@@ -272,6 +277,11 @@ public class ModeWheele extends Activity {
 
 			
 			String root = parent.getItemAtPosition(pos).toString();
+			// if we're using the long form ten remove "scale of: "
+			if (root.contains("Scale of: ")) {
+				root = root.substring("Scale of: ".length());	
+			}
+			
 			Scale scale = new Scale("Ionian", root);
 			scale.setInitialStringAndFret(6, 1); // This also sets octave
 

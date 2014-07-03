@@ -27,15 +27,25 @@
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         android:drawSelectorOnTop = "true"
-        android:prompt = "@string/planet_prompt" android:visibility="visible">
+        android:prompt = "@string/scale_prompt" android:visibility="visible">
     </Spinner>
 
     <ImageView
         android:id="@+id/imageViewNeck"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:src="@drawable/neck0" />
+    
+        <TextView
+            android:id="@+id/textViewMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@android:color/white"
+            android:text="TextView"
+            android:textColor="@android:color/black" 
+            android:textAppearance="?android:attr/textAppearanceMedium"            />
 
     <FrameLayout
         android:layout_width="match_parent"

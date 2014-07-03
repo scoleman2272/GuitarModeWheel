@@ -178,8 +178,14 @@ public class WheeleView extends SurfaceView implements SurfaceHolder.Callback
      * Handle to the surface manager object we interact with
      */
     private SurfaceHolder mSurfaceHolder;    
+
+	TextView mTextViewMode;
+
     
-    
+	public void setTextViewMode(TextView mTextViewMode) {
+		this.mTextViewMode = mTextViewMode;
+	}
+
 	/**
 	 * @param context - Resource context
 	 * @param attrs - View attributes
@@ -187,6 +193,8 @@ public class WheeleView extends SurfaceView implements SurfaceHolder.Callback
 	public WheeleView(Context context, AttributeSet attrs)
 	{
 		super(context, attrs);
+		
+		
 		
         // Create a Midi player to play back notes
 		midiFile = new MidiPlayer(context);
@@ -547,13 +555,13 @@ public class WheeleView extends SurfaceView implements SurfaceHolder.Callback
             
             mTextPaint = new Paint();
             mTextPaint.setAntiAlias(true);
-            mTextPaint.setTextSize(30);
+            mTextPaint.setTextSize(50);
             mTextPaint.setTypeface(Typeface.SERIF);    
             mTextPaint.setTextAlign(Paint.Align.CENTER);            
 
             mSelectedTextPaint = new Paint();
             mSelectedTextPaint.setAntiAlias(true);
-            mSelectedTextPaint.setTextSize(30);
+            mSelectedTextPaint.setTextSize(50);
             mSelectedTextPaint.setTypeface(Typeface.DEFAULT_BOLD);    
             mSelectedTextPaint.setTextAlign(Paint.Align.CENTER);            
 
@@ -889,18 +897,36 @@ public class WheeleView extends SurfaceView implements SurfaceHolder.Callback
             	noteView.screenPosX = (int) mNamePoint.x;
             	noteView.screenPosY = (int) mNamePoint.y;
             }
+        	
+        	
         	try
 			{
 				// Draw Root and Mode
 				NoteView noteView = (NoteView) mScale.mItems.elementAt(mSelectedItemNum);
-				String ident = new String(mScale.mRoot + " (" +  noteView.title + ") " + noteView.majorMinor);
-//				String ident = new String(mScale.mRoot + " (" +  mScale.mMode + ") " + noteView.majorMinor);
-				canvas.drawText(ident, mCenterX - 20, mCanvasHeight - 20, mTextPaint);
+				final String ident = new String(mScale.mRoot + " (" +  noteView.title + ") " + noteView.majorMinor);
+
+				mTextViewMode.post(new Runnable() {
+
+					@Override
+					public void run() {
+						mTextViewMode.setText(ident);						
+					}
+					
+				});
+
+	    		
+	    		
+//				canvas.drawText(ident, mCenterX - 20, mCanvasHeight - 20, mTextPaint);
 			} catch (Exception e)
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}	
+        	
+        	
+        	
+        	
+        	
         }
 
 

@@ -25,6 +25,23 @@
         <item>A#</item>
         <item>B</item>
     </string-array>
-    <string name="planet_prompt">Select a planet</string>    
+    
+    <string-array name="ScaleNotesLong">
+        <item>Scale of: C</item>
+        <item>Scale of: C#</item>
+        <item>Scale of: D</item>
+        <item>Scale of: D#</item>
+        <item>Scale of: E</item>
+        <item>Scale of: F</item>
+        <item>Scale of: F#</item>
+        <item>Scale of: G</item>
+        <item>Scale of: G#</item>
+        <item>Scale of: A</item>
+        <item>Scale of: A#</item>
+        <item>Scale of: B</item>
+    </string-array>
+    
+
+    <string name="scale_prompt">Select a scale</string>    
     
 </resources>
